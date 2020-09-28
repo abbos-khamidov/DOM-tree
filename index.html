@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM tree</title>
+</head>
+
+<body>
+    <p>This is a paragraph</p>
+    <div>
+        <p>This is another paragraph</p>
+    </div>
+    <button>Click Me!</button>
+    <script>
+        document.getElementsByTagName('button')[0].addEventListener('click', () => {
+            const allParagraphs = document.getElementsByTagName('p');
+
+            let allContent = "";
+            let count = 0;
+            for (let i = 0; i < allParagraphs.length; i++) {
+                const node = allParagraphs[i];
+                count++;
+                allContent += `${count} - ${node.textContent}\n`;
+            }
+            alert(`Found ${count}paragraphs. Their content:\n${allContent}`);
+        });
+    </script>
+</body>
+
+</html>
